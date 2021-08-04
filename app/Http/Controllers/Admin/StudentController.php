@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\StudentRequest;
 use App\Models\Student;
+use App\DataTables\StudentDataTable;
+
 use Illuminate\Http\Request;
 
 class StudentController extends Controller
@@ -14,10 +16,9 @@ class StudentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(StudentDataTable $dataTable)
     {
-        $students = Student::all();
-        return view('admin.students.index', ['students'=>$students]);
+        return $dataTable->render('admin.students.index');
     }
 
     /**

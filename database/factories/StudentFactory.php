@@ -23,7 +23,7 @@ class StudentFactory extends Factory
     {
         return [
             'name' => $this->faker->name(),
-            
+            'gpa' => $this->faker->randomFloat(2,0,4),
 
         ];
     }
