@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.0.3/css/buttons.dataTables.min.css">
 
 @section('content')
-{{$dataTable->table()}}
+{{$dataTable->table([], true)}}
 @endsection
 
 @push('scripts')

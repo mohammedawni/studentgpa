@@ -1,10 +1,9 @@
 @extends('admin.index')
 @section('title')
-    Add Student
+    Edit Student
 @endsection
 @section('content')
-<form action="{{ route('students.update', ['student'=>$student]) }}" method="PUT">
-    @csrf
+{!! Form::open(['route' => ['students.update', [$student]], 'method' => 'PUT']) !!}
     <div class="input-group mb-3">
       <input name='name' type="text" class="form-control" placeholder="Full name" value="{{$student->name}}">
       <div class="input-group-append">
@@ -24,5 +23,6 @@
       </div>
       <!-- /.col -->
     </div>
-  </form>
+{!! Form::close() !!}
+
 @endsection

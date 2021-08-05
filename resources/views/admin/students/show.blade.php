@@ -1,12 +1,13 @@
 @extends('admin.index')
 @section('title')
-    User management
+    Students management
 @endsection
 
 @section('content')
     <ul>
+        <li><strong>ID</strong> : {{$student->id}}</li>
         <li>Name : {{$student->name}}</li>
-        <li>Name : {{$student->gpa}}</li>
+        <li>GPA : {{$student->gpa}}</li>
     </ul>
     <div>
         {!! Form::open(['route'=>['students.destroy', $student], 'method'=>'DELETE']) !!}

@@ -21,9 +21,10 @@ class StudentDataTable extends DataTable
     {
         return datatables()
             ->eloquent($query)
+            ->addColumn('checkbox', 'admin.students.btn.checkbox')
             ->addColumn('delete', 'admin.students.btn.delete')
             ->addColumn('edit', 'admin.students.btn.edit')
-            ->rawColumns(['delete', 'edit']);
+            ->rawColumns(['delete', 'edit', 'checkbox']);
             //->toJson();
     }
 
@@ -50,14 +51,27 @@ class StudentDataTable extends DataTable
                     ->columns($this->getColumns())
                     ->minifiedAjax()
                     ->dom('Bfrtip')
-                    ->orderBy(1)
+                    ->orderBy(1, 'asc')
+                    ->lengthMenu([10,25,50,100])
+                    ->initComplete("function () {
+                        this.api().columns([1,2,3]).every(function () {
+                            var column = this;
+                            var input = document.createElement(\"input\");
+                            $(input).appendTo($(column.footer()).empty())
+                            .on('keyup', function () {
+                                column.search($(this).val(), false, false, true).draw();
+                            });
+                        });
+                    }")
                     ->buttons(
                         Button::make('create'),
                         Button::make('export'),
                         Button::make('print'),
                         Button::make('reset'),
-                        Button::make('reload')
+                        Button::make('reload'),
+                        Button::make('pageLength')
                     );
+                    
     }
 
     /**
@@ -68,6 +82,13 @@ class StudentDataTable extends DataTable
     protected function getColumns()
     {
         return [
+            Column::computed('checkbox')
+                  ->exportable(false)
+                  ->printable(false)
+                  ->orderable(false)
+                  ->width(10)
+                  ->addClass('text-center')
+                  ->title("<input type='checkbox' class='check_all' onclick='check_all() />"),
             Column::make('id'),
             Column::make('name'),
             Column::make('gpa'),
@@ -84,6 +105,7 @@ class StudentDataTable extends DataTable
                   ->width(60)
                   ->addClass('text-center'),
         ];
+
     }
 
     /**
