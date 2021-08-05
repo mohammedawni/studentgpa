@@ -1,0 +1,1 @@
+<a href="{{ route('students.edit', ['student'=>$id]) }}" class="btn btn-success btn-sm">Edit</a>

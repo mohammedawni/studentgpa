@@ -3,7 +3,7 @@
     Add Student
 @endsection
 @section('content')
-<form action="{{ route('students.store') }}" method="post">
+<form action="{{ route('students.update', ['student'=>$student]) }}" method="PUT">
     @csrf
     <div class="input-group mb-3">
       <input name='name' type="text" class="form-control" placeholder="Full name" value="{{$student->name}}">

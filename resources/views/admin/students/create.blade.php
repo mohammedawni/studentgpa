@@ -15,7 +15,7 @@
     </div>
 
     <div class="input-group mb-3">
-    {!! Form::number('gpa', Request::old('gpa', '0.00'), ['class'=>'form-control', 'placeholder'=>'GPA', 'step'=>'any']) !!}
+    {!! Form::number('gpa', Request::old('gpa', 'GPA'), ['class'=>'form-control', 'placeholder'=>'GPA', 'step'=>'any']) !!}
     </div>
     <div class="row">
       <!-- /.col -->

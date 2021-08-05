@@ -49,8 +49,10 @@ $.widget.bridge('uibutton', $.ui.button)
 <script src="{{url('/design/admin/')}}/dist/js/pages/dashboard.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{url('/design/admin/')}}/dist/js/demo.js"></script>
-<script src="{{ mix('js/app.js') }}"></script>
-<script src="{{ asset('vendor/datatables/buttons.server-side.js') }}"></script>
+<script src="{{url('/design/admin/')}}/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="{{url('/design/admin/')}}/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="{{url('/design/admin/')}}/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="{{url('/design/admin/')}}/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
 @stack('scripts')
 @yield('javascript')
 </body>

@@ -13,7 +13,7 @@
         {!! Form::submit('Delete student', ['class'=>'btn btn-danger mb-2']) !!}
         {!! Form::close() !!}
     </div>
-    <div class="btn btn-success mx-2">
+    <div class="btn btn-outline-primary mx-2 text-dark">
         <a href="{{ route('students.edit', [$student]) }}">Edit student</a>
     </div>
 @endsection

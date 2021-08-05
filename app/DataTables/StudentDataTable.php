@@ -21,7 +21,10 @@ class StudentDataTable extends DataTable
     {
         return datatables()
             ->eloquent($query)
-            ->addColumn('action', 'student.action');
+            ->addColumn('delete', 'admin.students.btn.delete')
+            ->addColumn('edit', 'admin.students.btn.edit')
+            ->rawColumns(['delete', 'edit']);
+            //->toJson();
     }
 
     /**
@@ -65,16 +68,21 @@ class StudentDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            Column::computed('action')
-                  ->exportable(false)
-                  ->printable(false)
-                  ->width(60)
-                  ->addClass('text-center'),
             Column::make('id'),
             Column::make('name'),
             Column::make('gpa'),
             Column::make('created_at'),
             Column::make('updated_at'),
+            Column::computed('delete')
+                  ->exportable(false)
+                  ->printable(false)
+                  ->width(60)
+                  ->addClass('text-center'),
+            Column::computed('edit')
+                  ->exportable(false)
+                  ->printable(false)
+                  ->width(60)
+                  ->addClass('text-center'),
         ];
     }
 
