@@ -87,7 +87,7 @@ class StudentDataTable extends DataTable
                   ->orderable(false)
                   ->width(10)
                   ->addClass('text-center')
-                  ->title("<input type='checkbox' id='students_checkbox' />"),
+                  ->title("<input type='checkbox' id='all_students_checkbox' />"),
             Column::make('id'),
             Column::make('name'),
             Column::make('gpa'),

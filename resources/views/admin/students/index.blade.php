@@ -11,22 +11,6 @@
 <script src="https://cdn.datatables.net/buttons/1.7.1/js/dataTables.buttons.min.js"></script>
 <script src="/vendor/datatables/buttons.server-side.js"></script>
     {{$dataTable->scripts()}}
-
+<script src="{{url('/design/admin/')}}/student_actions.js"></script>
 @endpush
     
-@section('javascript')
-$('#students_checkbox').change(function () {
-    $('.student').prop('checked',this.checked);
-});
-
-$('.student').change(function () {
-    if ($('.student:checked').length == $('.student').length){
-     $('#students_checkbox').prop('checked',true);
-    }
-    else {
-     $('#students_checkbox').prop('checked',false);
-    }
-   });
-
-
-@endsection
