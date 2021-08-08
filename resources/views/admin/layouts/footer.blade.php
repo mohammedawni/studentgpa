@@ -16,10 +16,10 @@
 <!-- ./wrapper -->
 
 <!-- jQuery -->
-<script src="{{url('/design/admin/')}}/plugins/jquery/jquery.min.js"></script>
 <!-- jQuery UI 1.11.4 -->
-<script src="{{url('/design/admin/')}}/plugins/jquery-ui/jquery-ui.min.js"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+<script src="{{url('/design/admin/')}}/plugins/jquery-ui/jquery-ui.min.js"></script>
+
 <script>
 $.widget.bridge('uibutton', $.ui.button)
 </script>
@@ -45,8 +45,7 @@ $.widget.bridge('uibutton', $.ui.button)
 <script src="{{url('/design/admin/')}}/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
 <!-- AdminLTE App -->
 <script src="{{url('/design/admin/')}}/dist/js/adminlte.js"></script>
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="{{url('/design/admin/')}}/dist/js/pages/dashboard.js"></script>
+
 <!-- AdminLTE for demo purposes -->
 <script src="{{url('/design/admin/')}}/dist/js/demo.js"></script>
 <script src="{{url('/design/admin/')}}/plugins/datatables/jquery.dataTables.min.js"></script>
@@ -54,6 +53,12 @@ $.widget.bridge('uibutton', $.ui.button)
 <script src="{{url('/design/admin/')}}/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
 <script src="{{url('/design/admin/')}}/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
 @stack('scripts')
-@yield('javascript')
+<script type="text/javascript">
+$(document).ready(function () {
+    
+  @yield('javascript')
+});
+</script>
+
 </body>
 </html>

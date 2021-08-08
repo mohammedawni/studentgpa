@@ -26,7 +26,6 @@
   <section class="content">
     <div class="container-fluid">
         @include('admin.layouts.message')
-        @include('admin.layouts.validation')
         @yield('content')
       </div><!-- /.container-fluid -->
     </section>

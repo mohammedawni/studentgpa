@@ -25,7 +25,6 @@ class StudentDataTable extends DataTable
             ->addColumn('delete', 'admin.students.btn.delete')
             ->addColumn('edit', 'admin.students.btn.edit')
             ->rawColumns(['delete', 'edit', 'checkbox']);
-            //->toJson();
     }
 
     /**
@@ -88,7 +87,7 @@ class StudentDataTable extends DataTable
                   ->orderable(false)
                   ->width(10)
                   ->addClass('text-center')
-                  ->title("<input type='checkbox' class='check_all' onclick='check_all() />"),
+                  ->title("<input type='checkbox' id='students_checkbox' />"),
             Column::make('id'),
             Column::make('name'),
             Column::make('gpa'),

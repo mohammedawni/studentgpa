@@ -1,1 +1,1 @@
-<input type='checkbox' name="student[]" value="{{$id}}"/>
+<input type='checkbox' class="student" value="{{$id}}"/>
